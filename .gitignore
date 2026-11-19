@@ -1,0 +1,22 @@
+# Dependencias
+node_modules/
+package-lock.json
+
+# Variables de entorno y credenciales sensibles
+.env
+.env.*
+!.env.example
+google-credentials.json
+*/google-credentials.json
+backend/config/google-credentials.json
+
+# Salidas de compilación
+dist/
+build/
+*.log
+
+# Archivos de sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,880 @@
+/* ===================================================
+   PALETA ESTRICTA (IMAGEN 1):
+   - MEADOW GREEN:   #0C6038
+   - MUSTARD GREEN:  #808B47
+   - PEACH:          #F1D2A1 (y tonalidades papel/lino #FAF6EE, #F5EEDB)
+   - OUTERSPACE:     #2D4C39
+   - CRIMSON:        #6C1D24
+
+   LENGUAJE DE DISEÑO EDITORIAL / ARCO (IMAGEN 2):
+   - Arcos de medio punto (Arch portal: rounded-t-full con doble marco)
+   - Indicador de 3 puntos (• • •) bajo el arco
+   - Doble marco editorial (double borders & inset frames)
+   - Cápsulas circulares en hilera (circular thumbnail capsules)
+   - Barra superior minimalista con iconos utilitarios y pestañas pill
+   - Tipografía editorial serif combinada con sans-serif limpio
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* PALETA ESTRICTA IMAGEN 1 */
+  --meadow-green: #0C6038;
+  --meadow-green-dark: #084528;
+  --meadow-green-light: #127947;
+  
+  --mustard-green: #808B47;
+  --mustard-green-dark: #656E37;
+  --mustard-green-light: #9DAA58;
+
+  --peach: #F1D2A1;
+  --peach-subtle: #F5EEDB;
+  --peach-light: #FAF6EE;
+  --peach-dark: #D4B27C;
+
+  --outerspace: #2D4C39;
+  --outerspace-dark: #1C3326;
+  --outerspace-light: #3E634D;
+
+  --crimson: #6C1D24;
+  --crimson-light: #FBEBED;
+  --crimson-dark: #52151B;
+
+  /* ASIGNACIÓN DE ROLES DE COLOR */
+  --primary: var(--meadow-green);
+  --primary-dark: var(--outerspace-dark);
+  --primary-light: var(--mustard-green);
+
+  --accent: var(--mustard-green);
+  --accent-light: var(--peach);
+  --accent-bg: var(--peach-light);
+
+  --warning: var(--mustard-green);
+  --warning-bg: var(--peach-subtle);
+
+  --danger: var(--crimson);
+  --danger-bg: var(--crimson-light);
+
+  --bg-page: #F6F2E8;
+  --bg-card: #FFFFFF;
+  --bg-subtle: var(--peach-light);
+
+  --text-main: var(--outerspace);
+  --text-muted: #536A5C;
+  --text-subtle: #7A8E80;
+  --text-inverse: #FAF6EE;
+
+  --border-color: #D6CCA8;
+  --border-editorial: #0C6038;
+  --border-accent: #808B47;
+
+  --shadow-sm: 0 1px 3px rgba(45, 76, 57, 0.08);
+  --shadow-md: 0 4px 10px rgba(45, 76, 57, 0.12);
+  --shadow-lg: 0 12px 24px rgba(45, 76, 57, 0.16);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-arch: 9999px 9999px 12px 12px;
+  --radius-full: 9999px;
+
+  /* VARIABLES ESPECÍFICAS DE SUPERFICIE ADAPTABLES AL TEMA */
+  --heading-color: var(--meadow-green);
+  --header-bg: #FFFFFF;
+  --header-border: var(--meadow-green);
+  --navbar-main-bg: #2D4C39;
+  --navbar-top-bg: #1C3326;
+  --table-th-bg: var(--peach-light);
+  --table-hover-bg: var(--peach-light);
+  --chat-bot-bg: #FFFFFF;
+  --chat-bot-border: var(--border-color);
+  --citation-bg: var(--peach-light);
+}
+
+[data-theme="dark"],
+.dark {
+  /* ===================================================
+     PALETA ESTRICTA EN MODO OSCURO (BOTÁNICO NOIR / EDITORIAL)
+     - Meadow Green: Tonalidad esmeralda luminosa para alto contraste
+     - Mustard Green: Verde mostaza cálido suavizado
+     - Peach: Tonalidades lino y crema cálida sobre superficie oscura
+     - Outerspace: Tonalidades profundas de bosque (#2D4C39)
+     - Crimson: Carmesí de alerta calibrado para accesibilidad
+     =================================================== */
+  --meadow-green: #1EA665;
+  --meadow-green-dark: #127947;
+  --meadow-green-light: #32C87E;
+
+  --mustard-green: #AAB860;
+  --mustard-green-dark: #808B47;
+  --mustard-green-light: #C2D177;
+
+  --peach: #F1D2A1;
+  --peach-subtle: #24382B;
+  --peach-light: #192C21;
+  --peach-dark: #E2BF88;
+
+  --outerspace: #2D4C39;
+  --outerspace-dark: #1C3326;
+  --outerspace-light: #3E634D;
+
+  --crimson: #E05A65;
+  --crimson-light: #301418;
+  --crimson-dark: #8C222C;
+
+  /* ROLES DE COLOR EN MODO OSCURO */
+  --primary: var(--meadow-green);
+  --primary-dark: #0A140E;
+  --primary-light: var(--mustard-green);
+
+  --accent: var(--mustard-green);
+  --accent-light: var(--peach);
+  --accent-bg: var(--peach-light);
+
+  --warning: var(--mustard-green);
+  --warning-bg: var(--peach-subtle);
+
+  --danger: var(--crimson);
+  --danger-bg: var(--crimson-light);
+
+  --bg-page: #0C1510;
+  --bg-card: #15241B;
+  --bg-subtle: #192C21;
+
+  --text-main: #FAF6EE;
+  --text-muted: #C8D8CE;
+  --text-subtle: #A3BDAD;
+  --text-inverse: #0C1510;
+
+  --border-color: #263E2F;
+  --border-editorial: #1EA665;
+  --border-accent: #AAB860;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.7);
+
+  --heading-color: #FAF6EE;
+  --header-bg: #14221A;
+  --header-border: #1EA665;
+  --navbar-main-bg: #101C15;
+  --navbar-top-bg: #09120D;
+  --table-th-bg: #1B2F23;
+  --table-hover-bg: #182B1F;
+  --chat-bot-bg: #16261E;
+  --chat-bot-border: #263E2F;
+  --citation-bg: #192C21;
+}
+
+/* ===================================================
+   REGLAS ESPECÍFICAS DE CONTRASTE EN MODO OSCURO
+   =================================================== */
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] .heading-serif {
+  color: #FAF6EE;
+}
+
+[data-theme="dark"] .font-editorial {
+  color: #FAF6EE;
+}
+
+[data-theme="dark"] .subtitle-script {
+  color: #C2D177;
+}
+
+[data-theme="dark"] .capsule-circle {
+  background-color: #192C21;
+  border-color: #1EA665;
+  color: #F1D2A1;
+  box-shadow: inset 0 0 0 2px rgba(241, 210, 161, 0.25);
+}
+
+[data-theme="dark"] .capsule-label {
+  color: #F4EEDC;
+}
+
+[data-theme="dark"] .capsule-item:hover .capsule-circle {
+  background-color: #244231;
+  border-color: #F1D2A1;
+  color: #FFFFFF;
+  box-shadow: 0 6px 14px rgba(30, 166, 101, 0.4);
+}
+
+[data-theme="dark"] .capsule-item:hover .capsule-label {
+  color: #F1D2A1;
+}
+
+[data-theme="dark"] .card-editorial {
+  border-color: #263E2F;
+  background-color: #15241B;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .frame-editorial {
+  border-color: #1EA665;
+  background-color: #15241B;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .table-wrapper {
+  border-color: #263E2F;
+  background-color: #15241B;
+}
+
+[data-theme="dark"] .corporate-table th {
+  background-color: #1B2F23;
+  color: #F1D2A1;
+  border-bottom: 2px solid #1EA665;
+}
+
+[data-theme="dark"] .corporate-table td {
+  border-bottom: 1px solid #233B2C;
+  color: #FAF6EE;
+}
+
+[data-theme="dark"] .corporate-table td > div {
+  color: inherit;
+}
+
+[data-theme="dark"] .corporate-table tbody tr:hover {
+  background-color: #182B1F;
+}
+
+[data-theme="dark"] .editorial-badge {
+  background-color: rgba(30, 166, 101, 0.15);
+  border-color: #1EA665;
+  color: #32C87E;
+}
+
+[data-theme="dark"] .badge-meadow {
+  background-color: rgba(30, 166, 101, 0.2);
+  color: #2AD17E;
+  border-color: #2AD17E;
+}
+
+[data-theme="dark"] .badge-mustard {
+  background-color: rgba(170, 184, 96, 0.2);
+  color: #C2D177;
+  border-color: #AAB860;
+}
+
+[data-theme="dark"] .badge-outerspace {
+  background-color: rgba(241, 210, 161, 0.15);
+  color: #F1D2A1;
+  border-color: #F1D2A1;
+}
+
+[data-theme="dark"] .badge-crimson {
+  background-color: rgba(224, 90, 101, 0.2);
+  color: #E05A65;
+  border-color: #E05A65;
+}
+
+[data-theme="dark"] .chat-bubble.bot-bubble {
+  background-color: #15241B !important;
+  color: #F4EEDC !important;
+  border: 1.5px solid #263E2F !important;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .chat-bubble.bot-bubble p {
+  color: #F4EEDC !important;
+}
+
+[data-theme="dark"] .chat-bubble.user-bubble {
+  background-color: #124D2D !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #1EA665 !important;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .chat-bubble.user-bubble p,
+[data-theme="dark"] .chat-bubble.user-bubble strong,
+[data-theme="dark"] .chat-bubble.user-bubble span,
+[data-theme="dark"] .chat-bubble.user-bubble div {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .chat-avatar.user-avatar {
+  background-color: #1EA665;
+  color: #FFFFFF;
+  border-color: #1EA665;
+}
+
+[data-theme="dark"] .chat-avatar.bot-avatar {
+  background-color: #192C21;
+  color: #1EA665;
+  border-color: #1EA665;
+}
+
+[data-theme="dark"] .citation-card {
+  background-color: #192C21;
+  border-color: var(--mustard-green);
+  color: #F1D2A1;
+}
+
+[data-theme="dark"] .citation-card:hover {
+  background-color: #223D2E;
+  border-color: var(--meadow-green);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================================================
+   TIPOGRAFÍA EDITORIAL (IMAGEN 2)
+   =================================================== */
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+h1, h2, h3, .heading-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  color: var(--meadow-green);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+
+.subtitle-script {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--mustard-green);
+  letter-spacing: 0.02em;
+}
+
+p {
+  color: var(--text-main);
+}
+
+a {
+  color: var(--meadow-green);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--outerspace);
+  text-decoration: underline;
+}
+
+/* ===================================================
+   ESTRUCTURAS DE DISEÑO DE LA IMAGEN 2
+   =================================================== */
+
+/* Arco Arquitectónico (Arco de Medio Punto) */
+.arch-frame {
+  border: 2px solid var(--meadow-green);
+  border-radius: var(--radius-arch);
+  padding: 8px;
+  background-color: var(--peach-light);
+  box-shadow: inset 0 0 0 1px var(--peach);
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-inner {
+  border-radius: calc(9999px - 8px) calc(9999px - 8px) 8px 8px;
+  border: 1px dashed var(--mustard-green);
+  background-color: var(--bg-card);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Indicador de 3 puntos (• • •) debajo del arco */
+.arch-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.arch-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--meadow-green);
+  display: inline-block;
+}
+.arch-dots span:nth-child(2) {
+  background-color: var(--mustard-green);
+}
+.arch-dots span:nth-child(3) {
+  background-color: var(--peach-dark);
+}
+
+/* Marcos Dobles Editoriales */
+.frame-editorial {
+  border: 2px solid var(--meadow-green);
+  background-color: var(--bg-card);
+  box-shadow: 4px 4px 0px rgba(12, 96, 56, 0.15);
+  position: relative;
+}
+
+.frame-double {
+  border: 3px double var(--meadow-green);
+  background-color: var(--peach-light);
+}
+
+.frame-inset {
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 0 0 2px var(--bg-card), inset 0 0 0 3px var(--border-color);
+}
+
+/* Cinta de Título / Ribbon Superior (como en el Hadith Box) */
+.ribbon-header {
+  background-color: var(--mustard-green);
+  color: var(--peach-light);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-bottom: 2px solid var(--meadow-green);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Cápsulas Circulares (Thumbnail Circular Capsules en hilera) */
+.capsule-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0.25rem 0;
+}
+
+.capsule-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 4px 8px;
+  user-select: none;
+}
+
+.capsule-item:hover .capsule-circle {
+  transform: translateY(-3px) scale(1.06);
+  background-color: var(--peach);
+  border-color: var(--outerspace);
+  box-shadow: 0 6px 14px rgba(12, 96, 56, 0.22);
+}
+
+.capsule-item:hover .capsule-label {
+  color: var(--meadow-green);
+}
+
+.capsule-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid var(--meadow-green);
+  background-color: var(--peach-light);
+  box-shadow: inset 0 0 0 2px var(--peach);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--meadow-green);
+  transition: all 0.2s ease;
+}
+
+.capsule-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--outerspace);
+  margin-top: 0.45rem;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+
+/* Badges Editoriales */
+.editorial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--meadow-green);
+  background-color: var(--peach-light);
+  color: var(--meadow-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+/* ===================================================
+   BOTONES EN LA PALETA ESTRICTA
+   =================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--meadow-green);
+  color: var(--peach-light);
+  border-color: var(--meadow-green);
+  box-shadow: 2px 2px 0px var(--outerspace);
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--meadow-green-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--peach-light);
+  color: var(--outerspace);
+  border-color: var(--border-color);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--peach);
+  border-color: var(--mustard-green);
+}
+
+.btn-mustard {
+  background-color: var(--mustard-green);
+  color: #FFFFFF;
+  border-color: var(--mustard-green);
+  box-shadow: 2px 2px 0px var(--outerspace);
+}
+.btn-mustard:hover:not(:disabled) {
+  background-color: var(--mustard-green-dark);
+}
+
+.btn-crimson {
+  background-color: var(--crimson);
+  color: #FFFFFF;
+  border-color: var(--crimson);
+  box-shadow: 2px 2px 0px var(--crimson-dark);
+}
+.btn-crimson:hover:not(:disabled) {
+  background-color: var(--crimson-dark);
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.785rem;
+}
+
+/* ===================================================
+   BADGES Y ETIQUETAS
+   =================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid currentColor;
+}
+
+.badge-meadow {
+  background-color: var(--peach-light);
+  color: var(--meadow-green);
+  border-color: var(--meadow-green);
+}
+
+.badge-mustard {
+  background-color: var(--peach-subtle);
+  color: var(--mustard-green-dark);
+  border-color: var(--mustard-green);
+}
+
+.badge-outerspace {
+  background-color: var(--peach-light);
+  color: var(--outerspace);
+  border-color: var(--outerspace);
+}
+
+.badge-crimson {
+  background-color: var(--crimson-light);
+  color: var(--crimson);
+  border-color: var(--crimson);
+}
+
+/* ===================================================
+   TARJETAS Y TABLAS
+   =================================================== */
+
+.card {
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-editorial {
+  border: 2px solid var(--meadow-green);
+  border-radius: 4px;
+  background-color: var(--bg-card);
+  box-shadow: 3px 3px 0px rgba(12, 96, 56, 0.12);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1.5px solid var(--meadow-green);
+  border-radius: 4px;
+  background-color: var(--bg-card);
+}
+
+.corporate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.corporate-table th {
+  background-color: var(--table-th-bg, var(--peach-light));
+  color: var(--outerspace);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-bottom: 1.5px solid var(--meadow-green);
+  white-space: nowrap;
+}
+
+.corporate-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.corporate-table tbody tr:hover {
+  background-color: var(--table-hover-bg, var(--peach-light));
+}
+
+/* ===================================================
+   BURBUJAS DE CHAT EDITORIALES
+   =================================================== */
+
+.chat-message-row {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.chat-message-row.user {
+  flex-direction: row-reverse;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--meadow-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.chat-avatar.user-avatar {
+  background-color: var(--meadow-green);
+  color: #FFFFFF;
+  border-color: var(--meadow-green);
+}
+
+.chat-avatar.bot-avatar {
+  background-color: var(--peach-light);
+  color: var(--meadow-green);
+  border-color: var(--meadow-green);
+}
+
+.chat-bubble {
+  max-width: 82%;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.chat-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.chat-bubble.user-bubble {
+  background-color: #0C6038;
+  color: #FFFFFF;
+  border: 1.5px solid #084528;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.chat-bubble.user-bubble p,
+.chat-bubble.user-bubble strong,
+.chat-bubble.user-bubble span,
+.chat-bubble.user-bubble div {
+  color: #FFFFFF !important;
+}
+
+.chat-bubble.bot-bubble {
+  background-color: var(--chat-bot-bg, var(--bg-card));
+  color: var(--text-main);
+  border: 1.5px solid var(--border-color);
+  box-shadow: 2px 2px 0px rgba(12, 96, 56, 0.1);
+}
+
+.chat-bubble.bot-bubble p {
+  color: var(--text-main);
+}
+
+.citation-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background-color: var(--citation-bg, var(--peach-light));
+  border: 1.5px solid var(--mustard-green);
+  border-radius: 4px;
+  padding: 0.75rem 0.95rem;
+  margin-top: 0.6rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.citation-card:hover {
+  background-color: var(--peach);
+  border-color: var(--meadow-green);
+  transform: translateX(3px);
+}
+
+/* ===================================================
+   ANIMACIONES Y SCROLLBAR
+   =================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mustard-green);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--meadow-green);
+}
+
+/* ===================================================
+   PLACEHOLDERS Y CAMPOS DE ENTRADA EN AMBOS MODOS
+   =================================================== */
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: #A1B8A8;
+  opacity: 0.9;
+}
+
+input, textarea, select {
+  color: var(--text-main);
+  background-color: var(--bg-card);
+}
